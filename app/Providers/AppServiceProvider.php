@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\ExpenseRepositoryContract;
+use App\Repositories\ExpenseRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->app->bind(ExpenseRepositoryContract::class, ExpenseRepository::class);
+
     }
 }
